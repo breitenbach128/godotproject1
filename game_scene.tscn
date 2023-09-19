@@ -1,25 +1,131 @@
-[gd_scene load_steps=5 format=3 uid="uid://26q5b53pem1f"]
+[gd_scene load_steps=9 format=3 uid="uid://26q5b53pem1f"]
 
-[ext_resource type="Texture2D" uid="uid://c2dtd0ync30ll" path="res://artwork/droparea1.png" id="1_4p6w5"]
 [ext_resource type="PackedScene" uid="uid://tms37ikxyjnp" path="res://card.tscn" id="1_hhauh"]
+[ext_resource type="Texture2D" uid="uid://c5frmroyfevfl" path="res://artwork/gothiccity2.jpg" id="2_3klyv"]
+[ext_resource type="Shader" path="res://zoneshader.gdshader" id="2_7nudh"]
 [ext_resource type="Script" path="res://Zone.gd" id="2_44uih"]
+[ext_resource type="Texture2D" uid="uid://cef6dbu6bsnk1" path="res://artwork/gothicmap1.png" id="4_hxaon"]
+[ext_resource type="Texture2D" uid="uid://ronhqksw83in" path="res://artwork/deck.png" id="6_u2sbl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_apygq"]
+shader = ExtResource("2_7nudh")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
-size = Vector2(270, 244)
+size = Vector2(150, 200)
 
 [node name="GameScene" type="Node2D"]
 
-[node name="Zone" type="Sprite2D" parent="."]
-position = Vector2(555, 248)
-texture = ExtResource("1_4p6w5")
+[node name="Board" type="Sprite2D" parent="."]
+texture = ExtResource("4_hxaon")
+centered = false
+
+[node name="Zone1" type="Sprite2D" parent="Board"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(366, 284)
+texture = ExtResource("2_3klyv")
 script = ExtResource("2_44uih")
 
-[node name="Area2D" type="Area2D" parent="Zone"]
+[node name="Area2D" type="Area2D" parent="Board/Zone1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone1/Area2D"]
 shape = SubResource("RectangleShape2D_iwdvr")
 
-[node name="Card" parent="." instance=ExtResource("1_hhauh")]
+[node name="Zone2" type="Sprite2D" parent="Board"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(845, 287)
+texture = ExtResource("2_3klyv")
+script = ExtResource("2_44uih")
 
-[connection signal="mouse_entered" from="Zone/Area2D" to="Zone" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Zone/Area2D" to="Zone" method="_on_area_2d_mouse_exited"]
+[node name="Area2D" type="Area2D" parent="Board/Zone2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone2/Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="Zone3" type="Sprite2D" parent="Board"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(1422, 276)
+texture = ExtResource("2_3klyv")
+script = ExtResource("2_44uih")
+
+[node name="Area2D" type="Area2D" parent="Board/Zone3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone3/Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="Zone4" type="Sprite2D" parent="Board"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(329, 840)
+texture = ExtResource("2_3klyv")
+script = ExtResource("2_44uih")
+
+[node name="Area2D" type="Area2D" parent="Board/Zone4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone4/Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="Zone5" type="Sprite2D" parent="Board"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(857, 837)
+texture = ExtResource("2_3klyv")
+script = ExtResource("2_44uih")
+
+[node name="Area2D" type="Area2D" parent="Board/Zone5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone5/Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="Zone6" type="Sprite2D" parent="Board"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(1429, 834)
+texture = ExtResource("2_3klyv")
+script = ExtResource("2_44uih")
+
+[node name="Area2D" type="Area2D" parent="Board/Zone6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone6/Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_u2sbl")
+stretch_mode = 2
+
+[node name="CardContainer" type="MarginContainer" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Card" parent="HUD/HBoxContainer/CardContainer" instance=ExtResource("1_hhauh")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="mouse_entered" from="Board/Zone1/Area2D" to="Board/Zone1" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Board/Zone1/Area2D" to="Board/Zone1" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Board/Zone2/Area2D" to="Board/Zone2" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Board/Zone2/Area2D" to="Board/Zone2" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Board/Zone3/Area2D" to="Board/Zone3" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Board/Zone3/Area2D" to="Board/Zone3" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Board/Zone4/Area2D" to="Board/Zone4" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Board/Zone4/Area2D" to="Board/Zone4" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Board/Zone5/Area2D" to="Board/Zone5" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Board/Zone5/Area2D" to="Board/Zone5" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Board/Zone6/Area2D" to="Board/Zone6" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Board/Zone6/Area2D" to="Board/Zone6" method="_on_area_2d_mouse_exited"]
