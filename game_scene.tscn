@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://26q5b53pem1f"]
+
+[ext_resource type="Texture2D" uid="uid://c2dtd0ync30ll" path="res://artwork/droparea1.png" id="1_4p6w5"]
+[ext_resource type="PackedScene" uid="uid://tms37ikxyjnp" path="res://card.tscn" id="1_hhauh"]
+[ext_resource type="Script" path="res://Zone.gd" id="2_44uih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
+size = Vector2(270, 244)
+
+[node name="GameScene" type="Node2D"]
+
+[node name="Zone" type="Sprite2D" parent="."]
+position = Vector2(555, 248)
+texture = ExtResource("1_4p6w5")
+script = ExtResource("2_44uih")
+
+[node name="Area2D" type="Area2D" parent="Zone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="Card" parent="." instance=ExtResource("1_hhauh")]
+
+[connection signal="mouse_entered" from="Zone/Area2D" to="Zone" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Zone/Area2D" to="Zone" method="_on_area_2d_mouse_exited"]
