@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://26q5b53pem1f"]
+[gd_scene load_steps=17 format=3 uid="uid://26q5b53pem1f"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_aco3h"]
 [ext_resource type="PackedScene" uid="uid://tms37ikxyjnp" path="res://card.tscn" id="1_hhauh"]
@@ -6,7 +6,11 @@
 [ext_resource type="Shader" path="res://zoneshader.gdshader" id="2_7nudh"]
 [ext_resource type="Script" path="res://Zone.gd" id="2_44uih"]
 [ext_resource type="Texture2D" uid="uid://xgoek65n5ylb" path="res://artwork/gothicmap1.png" id="4_hxaon"]
+[ext_resource type="Texture2D" uid="uid://cpaj6ooe6kcol" path="res://artwork/villager2.png" id="6_cv7pv"]
 [ext_resource type="Texture2D" uid="uid://b48y6ckyv1blt" path="res://artwork/deck.png" id="6_u2sbl"]
+[ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="8_lyy8e"]
+[ext_resource type="Script" path="res://cardhand.gd" id="9_fm6tp"]
+[ext_resource type="Script" path="res://camera2d.gd" id="11_w5vnf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_apygq"]
 shader = ExtResource("2_7nudh")
@@ -19,6 +23,27 @@ shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
 size = Vector2(150, 200)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8totg"]
+content_margin_left = 0.0
+bg_color = Color(0, 0, 0, 0.607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_axiw1"]
+font = ExtResource("8_lyy8e")
+
+[sub_resource type="LabelSettings" id="LabelSettings_24mtb"]
+font = ExtResource("8_lyy8e")
+font_size = 32
+font_color = Color(0.490196, 0.490196, 0.490196, 1)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_aco3h")
@@ -37,6 +62,36 @@ script = ExtResource("2_44uih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone1/Area2D"]
 shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="ZoneVillagerIcon" type="Sprite2D" parent="Board/Zone1"]
+modulate = Color(0.227451, 0.670588, 0.388235, 1)
+position = Vector2(100, 75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_cv7pv")
+
+[node name="Panel" type="Panel" parent="Board/Zone1"]
+offset_left = 77.0
+offset_top = 100.0
+offset_right = 109.0
+offset_bottom = 116.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8totg")
+
+[node name="VillagerValue" type="Label" parent="Board/Zone1/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_axiw1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Zone2" type="Sprite2D" parent="Board"]
 material = SubResource("ShaderMaterial_apygq")
@@ -105,19 +160,43 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+[node name="CardDeck" type="TextureRect" parent="HUD/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("6_u2sbl")
 stretch_mode = 2
 
-[node name="CardContainer" type="MarginContainer" parent="HUD/HBoxContainer"]
+[node name="CardHand" type="MarginContainer" parent="HUD/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("9_fm6tp")
 
-[node name="Card" parent="HUD/HBoxContainer/CardContainer" instance=ExtResource("1_hhauh")]
+[node name="Card" parent="HUD/HBoxContainer/CardHand" instance=ExtResource("1_hhauh")]
+position = Vector2(279, -40)
+rotation = -0.261799
+
+[node name="Card2" parent="HUD/HBoxContainer/CardHand" instance=ExtResource("1_hhauh")]
+position = Vector2(714, -38)
+rotation = 0.261799
+
+[node name="Card3" parent="HUD/HBoxContainer/CardHand" instance=ExtResource("1_hhauh")]
+position = Vector2(495, -60)
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="TurnCount" type="Label" parent="HUD/MarginContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Current Turn : 0"
+label_settings = SubResource("LabelSettings_24mtb")
+horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+script = ExtResource("11_w5vnf")
 
 [connection signal="mouse_entered" from="Board/Zone1/Area2D" to="Board/Zone1" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Board/Zone1/Area2D" to="Board/Zone1" method="_on_area_2d_mouse_exited"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://tms37ikxyjnp"]
 
 [ext_resource type="Script" path="res://card.gd" id="1_v3faj"]
-[ext_resource type="Texture2D" uid="uid://cpetl8bjrwu1w" path="res://artwork/cardbacksmall.jpg" id="2_yfd83"]
+[ext_resource type="Texture2D" uid="uid://gxqviy02ioe2" path="res://artwork/cardback.jpg" id="2_corju"]
 [ext_resource type="FontFile" uid="uid://dk3ejnxamld0b" path="res://fonts/black-rose-font/BlackRose-2Onld.ttf" id="3_abn6n"]
 [ext_resource type="Texture2D" uid="uid://diy4uui4bvjog" path="res://artwork/icContemplative.png" id="3_ghhy5"]
 [ext_resource type="Texture2D" uid="uid://drovek2plnibm" path="res://artwork/influencevalue.png" id="4_4uc1l"]
@@ -11,7 +11,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_hyaa5"]
 font = ExtResource("6_t6sp7")
-font_size = 14
+font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_per16"]
 font = ExtResource("3_abn6n")
@@ -19,8 +19,9 @@ font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_amg6t"]
 font = ExtResource("6_t6sp7")
-font_size = 12
+font_size = 14
 font_color = Color(0.0901961, 1, 1, 1)
+outline_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_moxms"]
@@ -31,24 +32,25 @@ font_size = 10
 script = ExtResource("1_v3faj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yfd83")
+texture_filter = 1
+texture = ExtResource("2_corju")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sprite2D"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -100.0
-offset_right = -75.0
-offset_bottom = -100.0
+offset_left = -110.0
+offset_top = -137.5
+offset_right = -110.0
+offset_bottom = -137.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 13
-theme_override_constants/margin_top = 13
-theme_override_constants/margin_right = 13
-theme_override_constants/margin_bottom = 13
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 18
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/MarginContainer"]
 layout_mode = 2
@@ -58,7 +60,7 @@ layout_mode = 2
 theme_override_constants/margin_top = 18
 
 [node name="Title" type="Label" parent="Sprite2D/MarginContainer/VBoxContainer"]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 2
 text = "Something Goes Bump in the night"
 label_settings = SubResource("LabelSettings_hyaa5")
@@ -73,7 +75,7 @@ texture = ExtResource("3_ghhy5")
 expand_mode = 1
 
 [node name="FearIcon" type="Sprite2D" parent="Sprite2D/MarginContainer/VBoxContainer/CardGraphic"]
-position = Vector2(111, 96)
+position = Vector2(164, 88)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_iphkp")
 
@@ -90,7 +92,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_per16")
 
 [node name="Desc" type="Label" parent="Sprite2D/MarginContainer/VBoxContainer"]
-texture_filter = 1
+texture_filter = 2
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 8
@@ -105,12 +107,12 @@ text = "tag"
 label_settings = SubResource("LabelSettings_moxms")
 
 [node name="TypeIcon" type="Sprite2D" parent="Sprite2D/MarginContainer"]
-position = Vector2(128, 23)
+position = Vector2(192, 27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_q3c8p")
 
 [node name="InfluenceIcon" type="Sprite2D" parent="Sprite2D/MarginContainer"]
-position = Vector2(21, 23)
+position = Vector2(27, 27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_4uc1l")
 
@@ -136,10 +138,10 @@ self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -100.0
-offset_right = -75.0
-offset_bottom = -100.0
+offset_left = -110.0
+offset_top = -137.5
+offset_right = -110.0
+offset_bottom = -137.5
 grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
