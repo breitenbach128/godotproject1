@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xgoek65n5ylb"
-path="res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"
+uid="uid://bw3nrp3jjn4dn"
+path="res://.godot/imported/believericon.png-4d216a034c5d31b845625bf91ab3f1fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/gothicmap1.png"
-dest_files=["res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"]
+source_file="res://artwork/believericon.png"
+dest_files=["res://.godot/imported/believericon.png-4d216a034c5d31b845625bf91ab3f1fb.ctex"]
 
 [params]
 

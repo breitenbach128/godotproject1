@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2dtd0ync30ll"
-path="res://.godot/imported/droparea1.png-3f93cc4517c45ca27f0426b9e6343ac4.ctex"
+uid="uid://rqd18d781q6g"
+path="res://.godot/imported/prayer.png-8b3ced6478038c3fd7859d1c419e5add.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/droparea1.png"
-dest_files=["res://.godot/imported/droparea1.png-3f93cc4517c45ca27f0426b9e6343ac4.ctex"]
+source_file="res://artwork/prayer.png"
+dest_files=["res://.godot/imported/prayer.png-8b3ced6478038c3fd7859d1c419e5add.ctex"]
 
 [params]
 

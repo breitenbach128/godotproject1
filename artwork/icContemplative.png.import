@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xgoek65n5ylb"
-path="res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"
+uid="uid://diy4uui4bvjog"
+path="res://.godot/imported/icContemplative.png-14848a372b5fe097678072d24452eca0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/gothicmap1.png"
-dest_files=["res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"]
+source_file="res://artwork/icContemplative.png"
+dest_files=["res://.godot/imported/icContemplative.png-14848a372b5fe097678072d24452eca0.ctex"]
 
 [params]
 

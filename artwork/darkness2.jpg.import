@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xgoek65n5ylb"
-path="res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"
+uid="uid://v1y5vfdhufdq"
+path="res://.godot/imported/darkness2.jpg-67568b2527b3a982639c515ba640e85a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/gothicmap1.png"
-dest_files=["res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"]
+source_file="res://artwork/darkness2.jpg"
+dest_files=["res://.godot/imported/darkness2.jpg-67568b2527b3a982639c515ba640e85a.ctex"]
 
 [params]
 

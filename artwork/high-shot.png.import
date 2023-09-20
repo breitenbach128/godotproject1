@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xgoek65n5ylb"
-path="res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"
+uid="uid://dkm5122d374aq"
+path="res://.godot/imported/high-shot.png-34984eac43a74dcd597a978f03ebdca2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/gothicmap1.png"
-dest_files=["res://.godot/imported/gothicmap1.png-a8a8de8eeea6d1029623ed1c1d8ace4c.ctex"]
+source_file="res://artwork/high-shot.png"
+dest_files=["res://.godot/imported/high-shot.png-34984eac43a74dcd597a978f03ebdca2.ctex"]
 
 [params]
 

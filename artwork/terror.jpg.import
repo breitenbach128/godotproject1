@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwjkkupw5qj3"
-path="res://.godot/imported/cardv1.png-8b1c38f37788bb02b25da41e1a1a55f5.ctex"
+uid="uid://dpulc4doiv8a3"
+path="res://.godot/imported/terror.jpg-a6b7264ac719a9fd3210833caacb7396.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artwork/cardv1.png"
-dest_files=["res://.godot/imported/cardv1.png-8b1c38f37788bb02b25da41e1a1a55f5.ctex"]
+source_file="res://artwork/terror.jpg"
+dest_files=["res://.godot/imported/terror.jpg-a6b7264ac719a9fd3210833caacb7396.ctex"]
 
 [params]
 
