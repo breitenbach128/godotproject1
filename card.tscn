@@ -31,11 +31,11 @@ font_size = 10
 [node name="Card" type="Node2D"]
 script = ExtResource("1_v3faj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CardTexture" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_corju")
 
-[node name="MarginContainer" type="MarginContainer" parent="Sprite2D"]
+[node name="MarginContainer" type="MarginContainer" parent="CardTexture"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,14 +52,14 @@ theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 22
 theme_override_constants/margin_bottom = 18
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardTexture/MarginContainer"]
 layout_mode = 2
 
-[node name="TopBar" type="MarginContainer" parent="Sprite2D/MarginContainer/VBoxContainer"]
+[node name="TopBar" type="MarginContainer" parent="CardTexture/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 18
 
-[node name="Title" type="Label" parent="Sprite2D/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 text = "Something Goes Bump in the night"
@@ -68,18 +68,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="CardGraphic" type="TextureRect" parent="Sprite2D/MarginContainer/VBoxContainer"]
+[node name="CardGraphic" type="TextureRect" parent="CardTexture/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_ghhy5")
 expand_mode = 1
 
-[node name="FearIcon" type="Sprite2D" parent="Sprite2D/MarginContainer/VBoxContainer/CardGraphic"]
+[node name="FearIcon" type="Sprite2D" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic"]
 position = Vector2(164, 88)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_iphkp")
 
-[node name="FearCost" type="Label" parent="Sprite2D/MarginContainer/VBoxContainer/CardGraphic/FearIcon"]
+[node name="FearCost" type="Label" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic/FearIcon"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -91,7 +91,7 @@ grow_vertical = 0
 text = "0"
 label_settings = SubResource("LabelSettings_per16")
 
-[node name="Desc" type="Label" parent="Sprite2D/MarginContainer/VBoxContainer"]
+[node name="Desc" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -100,23 +100,23 @@ text = "Card Desc Text which just kind of fills in some data."
 label_settings = SubResource("LabelSettings_amg6t")
 autowrap_mode = 2
 
-[node name="Tags" type="Label" parent="Sprite2D/MarginContainer/VBoxContainer"]
+[node name="Tags" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "tag"
 label_settings = SubResource("LabelSettings_moxms")
 
-[node name="TypeIcon" type="Sprite2D" parent="Sprite2D/MarginContainer"]
+[node name="TypeIcon" type="Sprite2D" parent="CardTexture/MarginContainer"]
 position = Vector2(192, 27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_q3c8p")
 
-[node name="InfluenceIcon" type="Sprite2D" parent="Sprite2D/MarginContainer"]
+[node name="InfluenceIcon" type="Sprite2D" parent="CardTexture/MarginContainer"]
 position = Vector2(27, 27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_4uc1l")
 
-[node name="InfluenceValue" type="Label" parent="Sprite2D/MarginContainer/InfluenceIcon"]
+[node name="InfluenceValue" type="Label" parent="CardTexture/MarginContainer/InfluenceIcon"]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -133,7 +133,7 @@ size_flags_vertical = 3
 text = "0"
 label_settings = SubResource("LabelSettings_per16")
 
-[node name="MouseRegion" type="Button" parent="Sprite2D"]
+[node name="MouseRegion" type="Button" parent="CardTexture"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,4 +146,4 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 
-[connection signal="pressed" from="Sprite2D/MouseRegion" to="." method="_on_mouse_region_pressed"]
+[connection signal="pressed" from="CardTexture/MouseRegion" to="." method="_on_mouse_region_pressed"]

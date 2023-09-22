@@ -2,11 +2,27 @@ extends Node
 
 
 var itemData = {}
+var carddeck = []
 
 var data_file_path = "res://Data/cards.json"
 
 func _ready():
 	itemData = load_json_file(data_file_path)
+	create_deck(itemData)
+	
+func create_deck(items):
+	var tuid = 0 #temporary UID as I need to rebuild them for multi copies of cards
+	for i in items:
+		for c in int(i.Count):
+			tuid+=1
+			i.cuid=tuid
+			carddeck.append(i)
+			#Create instance of Card and Set values
+			
+			#Append to CarddeckNode
+			
+			#Hide Visual
+			
 
 func load_json_file(filePath : String):
 	if FileAccess.file_exists(filePath):

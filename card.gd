@@ -5,6 +5,8 @@ signal picked_up_change(picked)
 
 var picked_up:bool = false
 
+var cuid  = -1 #Unique ID of the card in the desk.
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
