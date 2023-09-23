@@ -12,8 +12,9 @@ func _process(delta):
 
 
 func _on_area_2d_mouse_entered():
-	print("Zone: Mouse Entered")
-
+	#print("Zone: Mouse Entered")
+	pass
 
 func _on_area_2d_mouse_exited():
-	print("Zone: Mouse Exited")
+	#print("Zone: Mouse Exited")
+	pass

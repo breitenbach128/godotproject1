@@ -15,14 +15,11 @@ func create_deck(items):
 	for i in items:
 		for c in int(i.Count):
 			tuid+=1
-			i.cuid=tuid
-			carddeck.append(i)
-			#Create instance of Card and Set values
-			
-			#Append to CarddeckNode
-			
-			#Hide Visual
-			
+			var d:Dictionary=i.duplicate();
+			d.cuid = tuid;
+			#print("TUID :", tuid)
+			carddeck.append(d)			
+
 
 func load_json_file(filePath : String):
 	if FileAccess.file_exists(filePath):
@@ -33,7 +30,7 @@ func load_json_file(filePath : String):
 		var parsedResult = json.parse_string(dataFile.get_as_text())
 		#print("ParsedResult",parsedResult, " class ", typeof(parsedResult))
 		if parsedResult is Array:
-			print("Result was an Array")
+			#print("Result was an Array")
 #			for i in parsedResult:
 #				print("arrayItems ",i.Title)
 			return parsedResult

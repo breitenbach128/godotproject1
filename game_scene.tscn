@@ -1,7 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://26q5b53pem1f"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_aco3h"]
-[ext_resource type="PackedScene" uid="uid://tms37ikxyjnp" path="res://card.tscn" id="1_hhauh"]
 [ext_resource type="Texture2D" uid="uid://fi4hd0bvjojl" path="res://artwork/gothiccity2.jpg" id="2_3klyv"]
 [ext_resource type="Shader" path="res://zoneshader.gdshader" id="2_7nudh"]
 [ext_resource type="Script" path="res://Zone.gd" id="2_44uih"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpaj6ooe6kcol" path="res://artwork/villager2.png" id="6_cv7pv"]
 [ext_resource type="Texture2D" uid="uid://b48y6ckyv1blt" path="res://artwork/deck.png" id="6_u2sbl"]
 [ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="8_lyy8e"]
+[ext_resource type="Script" path="res://carddeck.gd" id="9_egock"]
 [ext_resource type="Script" path="res://cardhand.gd" id="9_fm6tp"]
 [ext_resource type="Script" path="res://camera2d.gd" id="11_w5vnf"]
 
@@ -150,7 +150,7 @@ shape = SubResource("RectangleShape2D_iwdvr")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+[node name="BottomBar" type="HBoxContainer" parent="HUD"]
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 12
 anchor_top = 1.0
@@ -160,26 +160,25 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="CardDeck" type="TextureRect" parent="HUD/HBoxContainer"]
+[node name="CardDeck" type="TextureRect" parent="HUD/BottomBar"]
 layout_mode = 2
 texture = ExtResource("6_u2sbl")
 stretch_mode = 2
+script = ExtResource("9_egock")
 
-[node name="CardHand" type="MarginContainer" parent="HUD/HBoxContainer"]
+[node name="Button" type="Button" parent="HUD/BottomBar/CardDeck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardHand" type="MarginContainer" parent="HUD/BottomBar"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("9_fm6tp")
-
-[node name="Card" parent="HUD/HBoxContainer/CardHand" instance=ExtResource("1_hhauh")]
-position = Vector2(279, -40)
-rotation = -0.261799
-
-[node name="Card2" parent="HUD/HBoxContainer/CardHand" instance=ExtResource("1_hhauh")]
-position = Vector2(714, -38)
-rotation = 0.261799
-
-[node name="Card3" parent="HUD/HBoxContainer/CardHand" instance=ExtResource("1_hhauh")]
-position = Vector2(495, -60)
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD"]
 anchors_preset = 10
@@ -210,3 +209,4 @@ script = ExtResource("11_w5vnf")
 [connection signal="mouse_exited" from="Board/Zone5/Area2D" to="Board/Zone5" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Board/Zone6/Area2D" to="Board/Zone6" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Board/Zone6/Area2D" to="Board/Zone6" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="HUD/BottomBar/CardDeck/Button" to="HUD/BottomBar/CardDeck" method="_on_button_pressed"]

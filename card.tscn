@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://diy4uui4bvjog" path="res://artwork/icContemplative.png" id="3_ghhy5"]
 [ext_resource type="Texture2D" uid="uid://drovek2plnibm" path="res://artwork/influencevalue.png" id="4_4uc1l"]
 [ext_resource type="Texture2D" uid="uid://gxx41n42vrca" path="res://artwork/skull1.png" id="4_iphkp"]
-[ext_resource type="Texture2D" uid="uid://dkm5122d374aq" path="res://artwork/high-shot.png" id="6_q3c8p"]
 [ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="6_t6sp7"]
+[ext_resource type="Texture2D" uid="uid://23r8wtbnjb81" path="res://artwork/item.png" id="7_ggv5j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hyaa5"]
 font = ExtResource("6_t6sp7")
@@ -26,7 +26,7 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_moxms"]
 font = ExtResource("3_abn6n")
-font_size = 10
+font_size = 18
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_v3faj")
@@ -75,7 +75,7 @@ texture = ExtResource("3_ghhy5")
 expand_mode = 1
 
 [node name="FearIcon" type="Sprite2D" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic"]
-position = Vector2(164, 88)
+position = Vector2(164, 75)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_iphkp")
 
@@ -101,6 +101,7 @@ label_settings = SubResource("LabelSettings_amg6t")
 autowrap_mode = 2
 
 [node name="Tags" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 8
 text = "tag"
@@ -109,7 +110,7 @@ label_settings = SubResource("LabelSettings_moxms")
 [node name="TypeIcon" type="Sprite2D" parent="CardTexture/MarginContainer"]
 position = Vector2(192, 27)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_q3c8p")
+texture = ExtResource("7_ggv5j")
 
 [node name="InfluenceIcon" type="Sprite2D" parent="CardTexture/MarginContainer"]
 position = Vector2(27, 27)
