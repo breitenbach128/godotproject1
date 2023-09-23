@@ -15,7 +15,9 @@ font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_per16"]
 font = ExtResource("3_abn6n")
-font_size = 22
+font_size = 40
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_amg6t"]
 font = ExtResource("6_t6sp7")
@@ -75,18 +77,21 @@ texture = ExtResource("3_ghhy5")
 expand_mode = 1
 
 [node name="FearIcon" type="Sprite2D" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic"]
-position = Vector2(164, 75)
+position = Vector2(150, 70)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_iphkp")
 
 [node name="FearCost" type="Label" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic/FearIcon"]
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -28.0
-offset_right = 22.0
-offset_bottom = -2.0
+offset_left = -17.0
+offset_top = -52.0
+offset_right = 4.0
+offset_bottom = -6.0
+grow_horizontal = 0
 grow_vertical = 0
 text = "0"
 label_settings = SubResource("LabelSettings_per16")
@@ -124,9 +129,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -17.0
-offset_top = -29.5
-offset_right = -6.0
-offset_bottom = -2.5
+offset_top = -36.0
+offset_right = 4.0
+offset_bottom = 10.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -147,4 +152,7 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 
+[connection signal="button_up" from="CardTexture/MouseRegion" to="." method="_on_mouse_region_button_up"]
+[connection signal="mouse_entered" from="CardTexture/MouseRegion" to="." method="_on_mouse_region_mouse_entered"]
+[connection signal="mouse_exited" from="CardTexture/MouseRegion" to="." method="_on_mouse_region_mouse_exited"]
 [connection signal="pressed" from="CardTexture/MouseRegion" to="." method="_on_mouse_region_pressed"]

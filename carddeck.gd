@@ -25,16 +25,15 @@ func load_deck(newdeck):
 		self.add_child(newCard)
 
 func draw_card():	
-	
-	if(handCount < 5):
-		handCount+=1
+	var children  = get_children()
+	var hand = get_parent().get_node("CardHand")
+	if(hand.get_children().size() < 5):
 		#Grab Random Card from Deck, remove from deck and add to hand
-		var children  = get_children()
-		var hand = get_parent().get_node("CardHand")
 		var r = rng.randi_range(0,get_child_count()-1)
-		var sCard = children[r]
-		self.remove_child(sCard)
-		hand.add_card(sCard)
+		if(r):
+			var sCard = children[r]
+			self.remove_child(sCard)
+			hand.add_card(sCard)
 		
 
 

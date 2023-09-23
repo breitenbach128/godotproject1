@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfxrackji03l5"]
+
+[ext_resource type="Shader" path="res://zoneshader.gdshader" id="1_8xj8i"]
+[ext_resource type="Texture2D" uid="uid://fi4hd0bvjojl" path="res://artwork/gothiccity2.jpg" id="2_n76de"]
+[ext_resource type="Script" path="res://Zone.gd" id="3_sh4im"]
+[ext_resource type="Texture2D" uid="uid://cpaj6ooe6kcol" path="res://artwork/villager2.png" id="4_dcjvh"]
+[ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="5_pwe0i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_apygq"]
+shader = ExtResource("1_8xj8i")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
+size = Vector2(150, 200)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8totg"]
+content_margin_left = 0.0
+bg_color = Color(0, 0, 0, 0.607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_axiw1"]
+font = ExtResource("5_pwe0i")
+
+[node name="Zone1" type="Sprite2D"]
+material = SubResource("ShaderMaterial_apygq")
+position = Vector2(366, 284)
+texture = ExtResource("2_n76de")
+script = ExtResource("3_sh4im")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iwdvr")
+
+[node name="ZoneVillagerIcon" type="Sprite2D" parent="."]
+modulate = Color(0.227451, 0.670588, 0.388235, 1)
+position = Vector2(100, 75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_dcjvh")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 77.0
+offset_top = 100.0
+offset_right = 109.0
+offset_bottom = 116.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8totg")
+
+[node name="VillagerValue" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_axiw1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

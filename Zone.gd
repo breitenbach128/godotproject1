@@ -1,5 +1,6 @@
 extends Sprite2D
 
+var over_zone:bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +13,6 @@ func _process(delta):
 
 
 func _on_area_2d_mouse_entered():
-	#print("Zone: Mouse Entered")
-	pass
-
+	over_zone = true;
 func _on_area_2d_mouse_exited():
-	#print("Zone: Mouse Exited")
-	pass
+	over_zone = false;

@@ -1,44 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://26q5b53pem1f"]
+[gd_scene load_steps=11 format=3 uid="uid://26q5b53pem1f"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_aco3h"]
-[ext_resource type="Texture2D" uid="uid://fi4hd0bvjojl" path="res://artwork/gothiccity2.jpg" id="2_3klyv"]
-[ext_resource type="Shader" path="res://zoneshader.gdshader" id="2_7nudh"]
-[ext_resource type="Script" path="res://Zone.gd" id="2_44uih"]
+[ext_resource type="PackedScene" uid="uid://dfxrackji03l5" path="res://zone.tscn" id="3_8lmhm"]
 [ext_resource type="Texture2D" uid="uid://xgoek65n5ylb" path="res://artwork/gothicmap1.png" id="4_hxaon"]
-[ext_resource type="Texture2D" uid="uid://cpaj6ooe6kcol" path="res://artwork/villager2.png" id="6_cv7pv"]
 [ext_resource type="Texture2D" uid="uid://b48y6ckyv1blt" path="res://artwork/deck.png" id="6_u2sbl"]
+[ext_resource type="Texture2D" uid="uid://1si8tw6w67di" path="res://artwork/discard.png" id="7_cbga4"]
 [ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="8_lyy8e"]
 [ext_resource type="Script" path="res://carddeck.gd" id="9_egock"]
 [ext_resource type="Script" path="res://cardhand.gd" id="9_fm6tp"]
 [ext_resource type="Script" path="res://camera2d.gd" id="11_w5vnf"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_apygq"]
-shader = ExtResource("2_7nudh")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 1.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = true
-shader_parameter/number_of_images = Vector2(1, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
-size = Vector2(150, 200)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8totg"]
-content_margin_left = 0.0
-bg_color = Color(0, 0, 0, 0.607843)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_axiw1"]
-font = ExtResource("8_lyy8e")
 
 [sub_resource type="LabelSettings" id="LabelSettings_24mtb"]
 font = ExtResource("8_lyy8e")
@@ -52,101 +22,7 @@ script = ExtResource("1_aco3h")
 texture = ExtResource("4_hxaon")
 centered = false
 
-[node name="Zone1" type="Sprite2D" parent="Board"]
-material = SubResource("ShaderMaterial_apygq")
-position = Vector2(366, 284)
-texture = ExtResource("2_3klyv")
-script = ExtResource("2_44uih")
-
-[node name="Area2D" type="Area2D" parent="Board/Zone1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone1/Area2D"]
-shape = SubResource("RectangleShape2D_iwdvr")
-
-[node name="ZoneVillagerIcon" type="Sprite2D" parent="Board/Zone1"]
-modulate = Color(0.227451, 0.670588, 0.388235, 1)
-position = Vector2(100, 75)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_cv7pv")
-
-[node name="Panel" type="Panel" parent="Board/Zone1"]
-offset_left = 77.0
-offset_top = 100.0
-offset_right = 109.0
-offset_bottom = 116.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_8totg")
-
-[node name="VillagerValue" type="Label" parent="Board/Zone1/Panel"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 1.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-label_settings = SubResource("LabelSettings_axiw1")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Zone2" type="Sprite2D" parent="Board"]
-material = SubResource("ShaderMaterial_apygq")
-position = Vector2(845, 287)
-texture = ExtResource("2_3klyv")
-script = ExtResource("2_44uih")
-
-[node name="Area2D" type="Area2D" parent="Board/Zone2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone2/Area2D"]
-shape = SubResource("RectangleShape2D_iwdvr")
-
-[node name="Zone3" type="Sprite2D" parent="Board"]
-material = SubResource("ShaderMaterial_apygq")
-position = Vector2(1422, 276)
-texture = ExtResource("2_3klyv")
-script = ExtResource("2_44uih")
-
-[node name="Area2D" type="Area2D" parent="Board/Zone3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone3/Area2D"]
-shape = SubResource("RectangleShape2D_iwdvr")
-
-[node name="Zone4" type="Sprite2D" parent="Board"]
-material = SubResource("ShaderMaterial_apygq")
-position = Vector2(329, 840)
-texture = ExtResource("2_3klyv")
-script = ExtResource("2_44uih")
-
-[node name="Area2D" type="Area2D" parent="Board/Zone4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone4/Area2D"]
-shape = SubResource("RectangleShape2D_iwdvr")
-
-[node name="Zone5" type="Sprite2D" parent="Board"]
-material = SubResource("ShaderMaterial_apygq")
-position = Vector2(857, 837)
-texture = ExtResource("2_3klyv")
-script = ExtResource("2_44uih")
-
-[node name="Area2D" type="Area2D" parent="Board/Zone5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone5/Area2D"]
-shape = SubResource("RectangleShape2D_iwdvr")
-
-[node name="Zone6" type="Sprite2D" parent="Board"]
-material = SubResource("ShaderMaterial_apygq")
-position = Vector2(1429, 834)
-texture = ExtResource("2_3klyv")
-script = ExtResource("2_44uih")
-
-[node name="Area2D" type="Area2D" parent="Board/Zone6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Zone6/Area2D"]
-shape = SubResource("RectangleShape2D_iwdvr")
+[node name="Zone1" parent="Board" instance=ExtResource("3_8lmhm")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -180,6 +56,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("9_fm6tp")
 
+[node name="Discard" type="MarginContainer" parent="HUD/BottomBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="DiscardIcon" type="TextureRect" parent="HUD/BottomBar/Discard"]
+modulate = Color(1, 1, 1, 0.427451)
+layout_mode = 2
+texture = ExtResource("7_cbga4")
+
 [node name="MarginContainer" type="MarginContainer" parent="HUD"]
 anchors_preset = 10
 anchor_right = 1.0
@@ -197,16 +82,4 @@ horizontal_alignment = 1
 anchor_mode = 0
 script = ExtResource("11_w5vnf")
 
-[connection signal="mouse_entered" from="Board/Zone1/Area2D" to="Board/Zone1" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Zone1/Area2D" to="Board/Zone1" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Board/Zone2/Area2D" to="Board/Zone2" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Zone2/Area2D" to="Board/Zone2" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Board/Zone3/Area2D" to="Board/Zone3" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Zone3/Area2D" to="Board/Zone3" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Board/Zone4/Area2D" to="Board/Zone4" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Zone4/Area2D" to="Board/Zone4" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Board/Zone5/Area2D" to="Board/Zone5" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Zone5/Area2D" to="Board/Zone5" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Board/Zone6/Area2D" to="Board/Zone6" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Zone6/Area2D" to="Board/Zone6" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="HUD/BottomBar/CardDeck/Button" to="HUD/BottomBar/CardDeck" method="_on_button_pressed"]

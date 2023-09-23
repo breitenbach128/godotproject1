@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Cardloader="*res://cardloader.gd"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Project 1"
