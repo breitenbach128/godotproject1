@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfxrackji03l5"]
+[gd_scene load_steps=12 format=3 uid="uid://d31kd3ldnd662"]
 
 [ext_resource type="Shader" path="res://zoneshader.gdshader" id="1_8xj8i"]
 [ext_resource type="Texture2D" uid="uid://fi4hd0bvjojl" path="res://artwork/gothiccity2.jpg" id="2_n76de"]
@@ -16,6 +16,8 @@ shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_x2joh"]
+font = ExtResource("5_pwe0i")
+font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
 size = Vector2(150, 200)
@@ -36,119 +38,110 @@ corner_detail = 1
 [sub_resource type="LabelSettings" id="LabelSettings_axiw1"]
 font = ExtResource("5_pwe0i")
 
+[sub_resource type="LabelSettings" id="LabelSettings_uu2u8"]
+font_size = 48
+
 [node name="Zone1" type="Sprite2D"]
 material = SubResource("ShaderMaterial_apygq")
 position = Vector2(366, 284)
 texture = ExtResource("2_n76de")
 script = ExtResource("3_sh4im")
 
-[node name="InfoPanel" type="PanelContainer" parent="."]
-offset_left = -100.0
-offset_top = -125.0
-offset_right = 100.0
-offset_bottom = 125.0
+[node name="P1Data" type="PanelContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 75.0
+offset_top = -100.0
+offset_right = 75.0
+offset_bottom = -55.0
+grow_horizontal = 2
+rotation = 3.14159
 
-[node name="GridContainer" type="GridContainer" parent="InfoPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="P1Data"]
 layout_mode = 2
-columns = 3
+theme_override_constants/margin_top = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="InfoPanel/GridContainer"]
+[node name="Label" type="Label" parent="P1Data/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer"]
-layout_mode = 2
+size_flags_vertical = 1
 text = "P1: 0"
 label_settings = SubResource("LabelSettings_x2joh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
+[node name="P2Data" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -100.0
+offset_right = -25.0
+offset_bottom = -255.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="P2Data"]
 layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="P2Data/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "P1: 0"
+label_settings = SubResource("LabelSettings_x2joh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
+[node name="P3Data" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 100.0
+offset_right = 125.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 4.71239
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="P3Data"]
 layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="P3Data/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "P1: 0"
+label_settings = SubResource("LabelSettings_x2joh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer4" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="P4Data" type="PanelContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -100.0
+offset_right = -75.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer4"]
+[node name="MarginContainer" type="MarginContainer" parent="P4Data"]
 layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="P4Data/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "P1: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer5" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer5"]
-layout_mode = 2
-text = "P1: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer6" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer6"]
-layout_mode = 2
-text = "P1: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer7" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer7"]
-layout_mode = 2
-text = "P1: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer8" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer8"]
-layout_mode = 2
-text = "P1: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer9" type="MarginContainer" parent="InfoPanel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer9"]
-layout_mode = 2
-text = "P1: 0"
+label_settings = SubResource("LabelSettings_x2joh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -184,6 +177,21 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 label_settings = SubResource("LabelSettings_axiw1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfluenceValue" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -100.0
+offset_right = -75.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_uu2u8")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://26q5b53pem1f"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_aco3h"]
-[ext_resource type="PackedScene" uid="uid://dfxrackji03l5" path="res://zone.tscn" id="3_8lmhm"]
+[ext_resource type="PackedScene" uid="uid://d31kd3ldnd662" path="res://zone.tscn" id="3_8lmhm"]
 [ext_resource type="Texture2D" uid="uid://xgoek65n5ylb" path="res://artwork/gothicmap1.png" id="4_hxaon"]
 [ext_resource type="Texture2D" uid="uid://b48y6ckyv1blt" path="res://artwork/deck.png" id="6_u2sbl"]
 [ext_resource type="Texture2D" uid="uid://1si8tw6w67di" path="res://artwork/discard.png" id="7_cbga4"]
