@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfxrackji03l5"]
+[gd_scene load_steps=11 format=3 uid="uid://dfxrackji03l5"]
 
 [ext_resource type="Shader" path="res://zoneshader.gdshader" id="1_8xj8i"]
 [ext_resource type="Texture2D" uid="uid://fi4hd0bvjojl" path="res://artwork/gothiccity2.jpg" id="2_n76de"]
@@ -14,6 +14,8 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2joh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdvr"]
 size = Vector2(150, 200)
@@ -40,6 +42,116 @@ position = Vector2(366, 284)
 texture = ExtResource("2_n76de")
 script = ExtResource("3_sh4im")
 
+[node name="InfoPanel" type="PanelContainer" parent="."]
+offset_left = -100.0
+offset_top = -125.0
+offset_right = 100.0
+offset_bottom = 125.0
+
+[node name="GridContainer" type="GridContainer" parent="InfoPanel"]
+layout_mode = 2
+columns = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer"]
+layout_mode = 2
+text = "P1: 0"
+label_settings = SubResource("LabelSettings_x2joh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer2"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer3"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer4"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer5"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer6" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer6"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer7" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer7"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer8" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer8"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer9" type="MarginContainer" parent="InfoPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InfoPanel/GridContainer/MarginContainer9"]
+layout_mode = 2
+text = "P1: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -51,14 +163,14 @@ position = Vector2(100, 75)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_dcjvh")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="VillagerPanel" type="Panel" parent="."]
 offset_left = 77.0
 offset_top = 100.0
 offset_right = 109.0
 offset_bottom = 116.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8totg")
 
-[node name="VillagerValue" type="Label" parent="Panel"]
+[node name="VillagerValue" type="Label" parent="VillagerPanel"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15

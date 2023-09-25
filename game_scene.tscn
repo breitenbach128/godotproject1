@@ -78,8 +78,15 @@ text = "Current Turn : 0"
 label_settings = SubResource("LabelSettings_24mtb")
 horizontal_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+[node name="CameraManager" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraManager"]
+position = Vector2(900, 900)
+ignore_rotation = false
+limit_left = -1000
+limit_top = -1000
+limit_right = 2800
+limit_bottom = 2800
 script = ExtResource("11_w5vnf")
 
 [connection signal="pressed" from="HUD/BottomBar/CardDeck/Button" to="HUD/BottomBar/CardDeck" method="_on_button_pressed"]

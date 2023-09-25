@@ -27,7 +27,7 @@ func load_json_file(filePath : String):
 		var dataFile = FileAccess.open(filePath, FileAccess.READ)
 		
 		#print("dataRead",dataFile.get_as_text())
-		var parsedResult = json.parse_string(dataFile.get_as_text())
+		var parsedResult = JSON.parse_string(dataFile.get_as_text())
 		#print("ParsedResult",parsedResult, " class ", typeof(parsedResult))
 		if parsedResult is Array:
 			#print("Result was an Array")

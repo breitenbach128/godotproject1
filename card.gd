@@ -5,7 +5,11 @@ signal picked_up_change(picked)
 
 var picked_up:bool = false
 var unflipped:bool = true;
+var hand_position:Vector2 = Vector2(0,0)
 var prev_z = 0;
+var hand_index = -1;#index in the hand from left ot right, max handsize of 5 cards
+
+var hand_slide_tween#Controls the visual slideout tween
 
 var data:Dictionary = {}
 
@@ -22,7 +26,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if picked_up:
 		global_position = get_global_mouse_position()
 		
@@ -33,6 +37,8 @@ func _process(delta):
 
 func _on_mouse_region_pressed():	
 	picked_up = true
+	hand_slide_tween.kill();
+	reset_child_index();
 	self.z_index = 99;
 	self.rotation_degrees = 0;
 	await mouse_released
@@ -72,15 +78,45 @@ func flip_card(state):
 		
 	
 
+func set_hand_position(index):
+	hand_position = self.position;
+	hand_index = index;
 
+# Move to the front child index to stop from entering mouse
+# region of controls visually behind the current one.
+func move_card_control_to_front():
+	var cCount = self.get_parent().get_child_count();
+	self.get_parent().move_child(self, cCount-1)
+	print("Card to Front: ", cCount-1, " from ", hand_index);
+
+# Resets to the original hand index 
+func reset_child_index():
+	self.get_parent().move_child(self, hand_index)
+	print("Card back to origin: ", hand_index)
 
 func _on_mouse_region_mouse_entered():
 	#move child may be what I need, but it will be complicated to put in.
+	print("card reg entered")
 	prev_z = z_index;
 	z_index = 99;
-	create_tween().tween_property(self,"position",Vector2(position.x,position.y-50),0.25).set_trans(Tween.TRANS_ELASTIC )
-
+	if(hand_slide_tween):
+		if(hand_slide_tween.is_running() == true):
+			hand_slide_tween.kill();
+	if(picked_up == false):
+		hand_slide_tween = create_tween()
+		hand_slide_tween.tween_property(self,"position",Vector2(hand_position.x,hand_position.y-50),0.75).set_trans(Tween.EASE_OUT  )
+		move_card_control_to_front();
+			
+	
 
 func _on_mouse_region_mouse_exited():
+	print("card reg exited")
 	z_index = prev_z;
-	create_tween().tween_property(self,"position",Vector2(position.x,position.y+50),0.25).set_trans(Tween.TRANS_ELASTIC )
+	if(hand_slide_tween):
+		if(hand_slide_tween.is_running() == true):
+			hand_slide_tween.kill();
+	if(picked_up == false):
+		hand_slide_tween = create_tween()
+		hand_slide_tween.tween_property(self,"position",Vector2(hand_position.x,hand_position.y),0.75).set_trans(Tween.EASE_OUT  )
+		reset_child_index();
+	
