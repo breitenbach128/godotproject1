@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://26q5b53pem1f"]
+[gd_scene load_steps=13 format=3 uid="uid://26q5b53pem1f"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_aco3h"]
+[ext_resource type="Texture2D" uid="uid://bfmcyuwmi0h3g" path="res://artwork/gothicmap2.png" id="2_jexq7"]
 [ext_resource type="PackedScene" uid="uid://d31kd3ldnd662" path="res://zone.tscn" id="3_8lmhm"]
-[ext_resource type="Texture2D" uid="uid://xgoek65n5ylb" path="res://artwork/gothicmap1.png" id="4_hxaon"]
+[ext_resource type="PackedScene" uid="uid://cm0m0eeqho3h2" path="res://tray.tscn" id="4_4s4a4"]
 [ext_resource type="Texture2D" uid="uid://b48y6ckyv1blt" path="res://artwork/deck.png" id="6_u2sbl"]
 [ext_resource type="Texture2D" uid="uid://1si8tw6w67di" path="res://artwork/discard.png" id="7_cbga4"]
 [ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="8_lyy8e"]
 [ext_resource type="Script" path="res://carddeck.gd" id="9_egock"]
 [ext_resource type="Script" path="res://cardhand.gd" id="9_fm6tp"]
+[ext_resource type="Texture2D" uid="uid://3tnq6d6pevsn" path="res://artwork/villager_v1.png" id="11_cyvoi"]
 [ext_resource type="Script" path="res://camera2d.gd" id="11_w5vnf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24mtb"]
@@ -19,10 +21,55 @@ font_color = Color(0.490196, 0.490196, 0.490196, 1)
 script = ExtResource("1_aco3h")
 
 [node name="Board" type="Sprite2D" parent="."]
-texture = ExtResource("4_hxaon")
+texture = ExtResource("2_jexq7")
 centered = false
 
 [node name="Zone1" parent="Board" instance=ExtResource("3_8lmhm")]
+position = Vector2(614, 594)
+scale = Vector2(0.75, 0.75)
+
+[node name="Tray" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 125.0
+offset_right = 150.0
+offset_bottom = 525.0
+grow_vertical = 2
+
+[node name="Tray2" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -325.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_vertical = 2
+rotation = 1.5708
+
+[node name="Tray3" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = 125.0
+offset_right = 600.0
+offset_bottom = 525.0
+grow_vertical = 2
+rotation = 4.71239
+
+[node name="Tray4" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = -325.0
+offset_right = 600.0
+offset_bottom = 75.0
+grow_vertical = 2
+rotation = 3.14159
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -88,5 +135,17 @@ limit_top = -1000
 limit_right = 2800
 limit_bottom = 2800
 script = ExtResource("11_w5vnf")
+
+[node name="VillagerV1" type="Sprite2D" parent="."]
+position = Vector2(496, 717)
+texture = ExtResource("11_cyvoi")
+
+[node name="VillagerV2" type="Sprite2D" parent="."]
+position = Vector2(578, 725)
+texture = ExtResource("11_cyvoi")
+
+[node name="VillagerV3" type="Sprite2D" parent="."]
+position = Vector2(481, 641)
+texture = ExtResource("11_cyvoi")
 
 [connection signal="pressed" from="HUD/BottomBar/CardDeck/Button" to="HUD/BottomBar/CardDeck" method="_on_button_pressed"]

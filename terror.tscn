@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://bybquh1hw4d32"]
+
+[ext_resource type="Texture2D" uid="uid://gxqviy02ioe2" path="res://artwork/cardback.jpg" id="1_o8g8g"]
+[ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="2_es7by"]
+[ext_resource type="Texture2D" uid="uid://diy4uui4bvjog" path="res://artwork/icContemplative.png" id="3_7kvlv"]
+[ext_resource type="Texture2D" uid="uid://gxx41n42vrca" path="res://artwork/skull1.png" id="4_l8vi4"]
+[ext_resource type="FontFile" uid="uid://dk3ejnxamld0b" path="res://fonts/black-rose-font/BlackRose-2Onld.ttf" id="5_mdoe8"]
+[ext_resource type="Texture2D" uid="uid://23r8wtbnjb81" path="res://artwork/item.png" id="6_ttnln"]
+[ext_resource type="Texture2D" uid="uid://drovek2plnibm" path="res://artwork/influencevalue.png" id="7_21jta"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbgr1"]
+font = ExtResource("2_es7by")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_x551q"]
+font = ExtResource("5_mdoe8")
+font_size = 40
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_27r4o"]
+font = ExtResource("2_es7by")
+font_size = 14
+font_color = Color(0.0901961, 1, 1, 1)
+outline_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d8ins"]
+font = ExtResource("5_mdoe8")
+font_size = 18
+
+[node name="terror" type="Node2D"]
+
+[node name="CardTexture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_o8g8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="CardTexture"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -137.5
+offset_right = -110.0
+offset_bottom = -137.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardTexture/MarginContainer"]
+layout_mode = 2
+
+[node name="TopBar" type="MarginContainer" parent="CardTexture/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 18
+
+[node name="Title" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Something Goes Bump in the night"
+label_settings = SubResource("LabelSettings_wbgr1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CardGraphic" type="TextureRect" parent="CardTexture/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_7kvlv")
+expand_mode = 1
+
+[node name="FearIcon" type="Sprite2D" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic"]
+position = Vector2(150, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_l8vi4")
+
+[node name="FearCost" type="Label" parent="CardTexture/MarginContainer/VBoxContainer/CardGraphic/FearIcon"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -52.0
+offset_right = 4.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_x551q")
+
+[node name="Desc" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Card Desc Text which just kind of fills in some data."
+label_settings = SubResource("LabelSettings_27r4o")
+autowrap_mode = 2
+
+[node name="Tags" type="Label" parent="CardTexture/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 8
+text = "tag"
+label_settings = SubResource("LabelSettings_d8ins")
+
+[node name="TypeIcon" type="Sprite2D" parent="CardTexture/MarginContainer"]
+position = Vector2(192, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ttnln")
+
+[node name="InfluenceIcon" type="Sprite2D" parent="CardTexture/MarginContainer"]
+position = Vector2(27, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_21jta")
+
+[node name="InfluenceValue" type="Label" parent="CardTexture/MarginContainer/InfluenceIcon"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -36.0
+offset_right = 4.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+label_settings = SubResource("LabelSettings_x551q")
+
+[node name="MouseRegion" type="Button" parent="CardTexture"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -137.5
+offset_right = -110.0
+offset_bottom = -137.5
+grow_horizontal = 2
+grow_vertical = 2
