@@ -3,6 +3,7 @@ extends Node
 
 var itemData = {}
 var carddeck = []
+var player_id = 1 #This is temp until MP is setup
 
 var data_file_path = "res://Data/cards.json"
 

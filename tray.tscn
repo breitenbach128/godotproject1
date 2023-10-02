@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm0m0eeqho3h2"]
+[gd_scene load_steps=3 format=3 uid="uid://cm0m0eeqho3h2"]
 
 [ext_resource type="Texture2D" uid="uid://gxqviy02ioe2" path="res://artwork/cardback.jpg" id="1_4p4dg"]
+[ext_resource type="Script" path="res://tray.gd" id="1_dmgdx"]
 
 [node name="Tray" type="Control"]
 custom_minimum_size = Vector2(450, 400)
@@ -12,17 +13,18 @@ offset_left = -25.0
 offset_right = 25.0
 offset_bottom = 100.0
 grow_horizontal = 2
+script = ExtResource("1_dmgdx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_right = 450.0
 offset_bottom = 400.0
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+[node name="CardStackLeft" type="Sprite2D" parent="VBoxContainer"]
 texture = ExtResource("1_4p4dg")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+[node name="CardStackRight" type="Sprite2D" parent="VBoxContainer"]
 texture = ExtResource("1_4p4dg")
 centered = false
 offset = Vector2(230, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://zoneshader.gdshader" id="1_8xj8i"]
 [ext_resource type="Texture2D" uid="uid://fi4hd0bvjojl" path="res://artwork/gothiccity2.jpg" id="2_n76de"]
-[ext_resource type="Script" path="res://Zone.gd" id="3_sh4im"]
+[ext_resource type="Script" path="res://zone.gd" id="3_qe4hf"]
 [ext_resource type="Texture2D" uid="uid://cpaj6ooe6kcol" path="res://artwork/villager2.png" id="4_dcjvh"]
 [ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="5_pwe0i"]
 
@@ -45,7 +45,7 @@ font_size = 48
 material = SubResource("ShaderMaterial_apygq")
 position = Vector2(366, 284)
 texture = ExtResource("2_n76de")
-script = ExtResource("3_sh4im")
+script = ExtResource("3_qe4hf")
 
 [node name="P1Data" type="PanelContainer" parent="."]
 anchors_preset = 10
