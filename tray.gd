@@ -1,4 +1,4 @@
-extends Control
+class_name Tray extends Control
 
 var terror_assigned: Terror
 var beleiver_stack = []
@@ -16,5 +16,6 @@ func _process(delta):
 
 func assign_player(player_number):
 	player_assigned = player_number
+	get_node("Label").text = str(player_number+1)
 
 

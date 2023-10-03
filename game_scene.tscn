@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://26q5b53pem1f"]
+[gd_scene load_steps=12 format=3 uid="uid://26q5b53pem1f"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_aco3h"]
 [ext_resource type="Texture2D" uid="uid://bfmcyuwmi0h3g" path="res://artwork/gothicmap2.png" id="2_jexq7"]
 [ext_resource type="PackedScene" uid="uid://d31kd3ldnd662" path="res://zone.tscn" id="3_8lmhm"]
-[ext_resource type="PackedScene" uid="uid://cm0m0eeqho3h2" path="res://tray.tscn" id="4_4s4a4"]
 [ext_resource type="Texture2D" uid="uid://b48y6ckyv1blt" path="res://artwork/deck.png" id="6_u2sbl"]
 [ext_resource type="Texture2D" uid="uid://1si8tw6w67di" path="res://artwork/discard.png" id="7_cbga4"]
 [ext_resource type="FontFile" uid="uid://d0d6xfk12u065" path="res://fonts/birch_leaf/BirchLeaf.otf" id="8_lyy8e"]
@@ -27,49 +26,6 @@ centered = false
 [node name="Zone1" parent="Board" instance=ExtResource("3_8lmhm")]
 position = Vector2(614, 594)
 scale = Vector2(0.75, 0.75)
-
-[node name="Tray" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = 125.0
-offset_right = 150.0
-offset_bottom = 525.0
-grow_vertical = 2
-
-[node name="Tray2" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -325.0
-offset_right = 150.0
-offset_bottom = 75.0
-grow_vertical = 2
-rotation = 1.5708
-
-[node name="Tray3" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 150.0
-offset_top = 125.0
-offset_right = 600.0
-offset_bottom = 525.0
-grow_vertical = 2
-rotation = 4.71239
-
-[node name="Tray4" parent="Board/Zone1" instance=ExtResource("4_4s4a4")]
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 150.0
-offset_top = -325.0
-offset_right = 600.0
-offset_bottom = 75.0
-grow_vertical = 2
-rotation = 3.14159
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
