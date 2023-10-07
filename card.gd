@@ -97,6 +97,19 @@ func reset_child_index():
 func _on_mouse_region_mouse_entered():
 	#move child may be what I need, but it will be complicated to put in.
 	print("card reg entered")
+	
+	if(hand_index != -1):
+		hand_slide_out();
+
+
+func _on_mouse_region_mouse_exited():
+	print("card reg exited")
+	
+	if(hand_index != -1):
+		hand_slide_in();
+
+	
+func hand_slide_out():
 	prev_z = z_index;
 	z_index = 99;
 	if(hand_slide_tween):
@@ -106,11 +119,8 @@ func _on_mouse_region_mouse_entered():
 		hand_slide_tween = create_tween()
 		hand_slide_tween.tween_property(self,"position",Vector2(hand_position.x,hand_position.y-50),0.75).set_trans(Tween.EASE_OUT  )
 		move_card_control_to_front();
-			
 	
-
-func _on_mouse_region_mouse_exited():
-	print("card reg exited")
+func hand_slide_in():
 	z_index = prev_z;
 	if(hand_slide_tween):
 		if(hand_slide_tween.is_running() == true):
@@ -119,4 +129,18 @@ func _on_mouse_region_mouse_exited():
 		hand_slide_tween = create_tween()
 		hand_slide_tween.tween_property(self,"position",Vector2(hand_position.x,hand_position.y),0.75).set_trans(Tween.EASE_OUT  )
 		reset_child_index();
+
+func discard():
+
+	var discard_pile_node = get_tree().get_root().get_node("GameScene/HUD/BottomBar/Discard")
+	self.get_parent().remove_child(self);
+	discard_pile_node.add_child(self)
+	self.position.x = 0;
+	self.position.y = 0;
+	self.flip_card(false);
 	
+	clear_hand_index();
+	
+func clear_hand_index():
+	hand_index = -1;
+

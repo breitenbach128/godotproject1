@@ -4,6 +4,8 @@ var maxHandSize = 5
 @warning_ignore("integer_division")
 var rSep = 180/maxHandSize/3
 
+var cl = Cardloader
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	organize_hand()
@@ -22,12 +24,13 @@ func _on_card_release(c):
 		if(z.over_zone && c.picked_up):
 			#I'm over this zone!
 			print("Over Zone when dropped :", z.name," " ,c.data.Title)
+			#Add card to tray slot matching player id.
+			for tray in z.player_trays:
+				if(tray.player_assigned == cl.player_id-1):
+					tray.add_card_to_tray(c)
+			
 			#remove from parent (cardhand)
-			c.get_parent().remove_child(c);
-			discard_pile.add_child(c);
-			c.position.x = 0;
-			c.position.y = 0;
-			c.flip_card(false);
+			#c.discard();
 			#print("connected? ",c.mouse_released.get_connections())
 			print("connected? ", c.mouse_released.is_connected(_on_card_release))
 			if(c.mouse_released.is_connected(_on_card_release)):

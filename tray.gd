@@ -18,4 +18,14 @@ func assign_player(player_number):
 	player_assigned = player_number
 	get_node("Label").text = str(player_number+1)
 
+func add_card_to_tray(c):
+	c.clear_hand_index();
+	var leftStack = $VBoxContainer/CardStackLeft/StackContainer
+	var rightStack = $VBoxContainer/CardStackRight/StackContainer
+	print("Card added to tray: ", c.data.Title)
+	c.get_parent().remove_child(c);
+	leftStack.add_child(c)
+	fear_stack.append(c)
+	c.position.x = 0;
+	c.position.y = fear_stack.size()*32;#32 is the spacing
 
